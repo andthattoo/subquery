@@ -40,7 +40,7 @@ result = generator.generate("What is the capital of France?")
 print("Follow-up questions:", result.follow_up)
 print("Subqueries:", result.subquery)
 ```
-
+For Ollama
 ```python
 from subquery import OllamaSubqueryGenerator
 # Using the Ollama backend
