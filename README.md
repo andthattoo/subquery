@@ -35,7 +35,7 @@ from subquery import TransformersSubqueryGenerator
 
 # Using the Transformers backend
 generator = TransformersSubqueryGenerator()
-result = generator.generate("What is the capital of France?")
+result = generator.generate("What is this?")
 
 print("Follow-up questions:", result.follow_up)
 print("Subqueries:", result.subquery)
@@ -45,7 +45,7 @@ For Ollama
 from subquery import OllamaSubqueryGenerator
 # Using the Ollama backend
 generator = OllamaSubqueryGenerator()
-result = generator.generate("What is the capital of France?")
+result = generator.generate("Are the Indiana Harbor and Ship Canal and the Folsom South Canal in the same state?")
 
 print("Follow-up questions:", result.follow_up)
 print("Subqueries:", result.subquery)
