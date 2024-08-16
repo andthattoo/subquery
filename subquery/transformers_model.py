@@ -3,10 +3,20 @@ import torch
 from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
 from .core import SubqueryGenerator, SubqueryResult
 from typing import List
+import importlib.util
+
+
+def check_transformers():
+    if importlib.util.find_spec("transformers") is None or importlib.util.find_spec("torch") is None:
+        raise ImportError("Transformers and torch must be installed to use TransformersSubqueryGenerator. "
+                          "Install subquery with the [transformers] extra.")
+
+# The rest of the file remains the same
 
 
 class TransformersSubqueryGenerator(SubqueryGenerator):
     def __init__(self):
+        check_transformers()
         self.config = AutoConfig.from_pretrained("andthattoo/subquery-SmolLM")
         self.tokenizer = AutoTokenizer.from_pretrained("andthattoo/subquery-SmolLM")
         self.model = AutoModelForCausalLM.from_pretrained("andthattoo/subquery-SmolLM", torch_dtype=torch.bfloat16)

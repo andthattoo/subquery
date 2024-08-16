@@ -2,10 +2,19 @@ import re
 from typing import List
 from ollama import Client
 from .core import SubqueryGenerator, SubqueryResult
+import importlib.util
 
 
+def check_ollama():
+    if importlib.util.find_spec("ollama") is None:
+        raise ImportError("Ollama must be installed to use OllamaSubqueryGenerator. "
+                          "Install subquery with the [ollama] extra.")
+
+
+# The rest of the file remains the same
 class OllamaSubqueryGenerator(SubqueryGenerator):
     def __init__(self):
+        check_ollama()
         self.client = Client()
 
     def get_text_between_tags(self, text: str, tag: str) -> List[str]:

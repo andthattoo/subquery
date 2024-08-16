@@ -1,24 +1,16 @@
 [tool.poetry]
 name = "subquery"
-version = "0.1.0"
+version = "0.1.1"
 description = "A package to generate subqueries and follow-up questions"
 authors = ["andthattoo <omer@firstbatch.xyz>"]
 license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
-
-[tool.poetry.group.transformers.dependencies]
-transformers = "^4.41.2"
-torch = "^2.3.0"
-
-[tool.poetry.group.ollama.dependencies]
+python = "^3.9"
 ollama = "^0.3.1"
-
-[tool.poetry.extras]
-transformers = ["transformers", "torch"]
-ollama = ["ollama"]
+torch = "^2.4.0"
+transformers = "^4.44.0"
 
 [build-system]
 requires = ["poetry-core"]
